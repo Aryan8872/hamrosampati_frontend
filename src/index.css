@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+@font-face {
+  font-family: "Manrope-Regular";
+  src: url("./assets/fonts/static/Manrope-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Manrope-Bold";
+  src: url("./assets/fonts/static/Manrope-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Manrope-SemiBold";
+  src: url("./assets/fonts/static/Manrope-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "Manrope-Medium";
+  src: url("./assets/fonts/static/Manrope-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Manrope-Light";
+  src: url("./assets/fonts/static/Manrope-Light.ttf");
+}
+
+@font-face {
+  font-family: "Manrope-Medium";
+  src: url("./assets/fonts/static/Manrope-Medium.ttf");
+}
+
+html {
+  scrollbar-width: none;
+  overflow: visible !important;
+
+}
+
+
+body {
+  -ms-overflow-style: none;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #059669;
+}
+
+/* Line clamp utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
