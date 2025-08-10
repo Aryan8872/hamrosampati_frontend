@@ -28,7 +28,7 @@ const editProfileJoiSchema = Joi.object({
 });
 
 export default function EditProfile() {
-    const { user, refreshUser, editProfile } = useAuth();
+    const { user, checkstatus, editProfile } = useAuth();
     const navigate = useNavigate();
     const [form, setForm] = useState({
         fullName: '',
@@ -44,7 +44,7 @@ export default function EditProfile() {
             setForm({
                 fullName: user.fullName || '',
                 email: user.email || '',
-                phoneNumber: user.phoneNumber || '',
+                phoneNumber: (user as any)?.phoneNumber || '',
             });
             setInitialLoading(false);
         }
@@ -73,12 +73,11 @@ export default function EditProfile() {
         setErrors(errs);
         if (Object.keys(errs).length > 0) return;
         setLoading(true);
-        let result;
+        let result: { success: boolean; message?: string; error?: string } | undefined;
         try {
             result = await editProfile(form);
             if (result.success) {
-                refreshUser && refreshUser();
-                setForm(f => ({ ...f, password: '' }));
+                await checkstatus();
             }
         } catch (err) {
             result = { success: false, error: 'An error occurred while updating profile' };

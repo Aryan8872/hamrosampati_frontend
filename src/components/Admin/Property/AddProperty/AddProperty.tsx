@@ -57,8 +57,8 @@ const AddPropertyModal = ({ isOpen, onClose }: addpropertytype) => {
     const handleFieldChange = (name: string, value: string) => {
         setFormData((prev) => ({
             ...prev,
-            [name]: value,
-        }));
+            [name]: value as any,
+        }) as PropertyType);
     };
 
     const handleSubmit = async () => {
@@ -122,7 +122,7 @@ const AddPropertyModal = ({ isOpen, onClose }: addpropertytype) => {
         }
     };
 
-    const districtCityMap = {
+    const districtCityMap: Record<string, string[]> = {
         "Kathmandu": [
             "Baneshwor", "Thamel", "Kalanki", "Boudha", "Kirtipur", "Maharajgunj", "Baluwatar", "Chabahil", "Gaushala", "Dillibazar", "Teku", "Putalisadak", "Samakhusi", "New Road", "Sundhara", "Swayambhu", "Naxal", "Gongabu", "Koteshwor", "Sankhamul", "Dhumbarahi", "Satdobato"
         ],
@@ -141,7 +141,7 @@ const AddPropertyModal = ({ isOpen, onClose }: addpropertytype) => {
         "Sunsari": ["Itahari", "Inaruwa", "Duhabi", "Dharan"]
     };
 
-    const cityOptions = districtCityMap[selectedDistrict] || [];
+    const cityOptions = districtCityMap[(selectedDistrict as string)] || [];
 
     return (
         <>
@@ -246,9 +246,10 @@ const AddPropertyModal = ({ isOpen, onClose }: addpropertytype) => {
                                         <div className="relative">
                                             <Dropdown
                                                 setValuefn={(district) => {
-                                                    setSelectedDistrict(district);
+                                                    const d = district as string;
+                                                    setSelectedDistrict(d);
                                                     setSelectedCity('Select a City');
-                                                    handleFieldChange('district', district);
+                                                    handleFieldChange('district', d);
                                                 }}
                                                 value={selectedDistrict!}
                                                 onChange={handleFieldChange}

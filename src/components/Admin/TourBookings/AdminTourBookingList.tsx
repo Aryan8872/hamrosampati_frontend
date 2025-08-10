@@ -11,9 +11,9 @@ import {
     FaEye,
     FaHistory,
     FaSearch,
-    FaUser
+    FaUser,
+    FaMapMarkerAlt
 } from 'react-icons/fa';
-import { GrLocation } from 'react-icons/gr';
 import Select from 'react-select';
 import { toast } from 'react-toastify';
 import { useTour } from '../../../context/TourRequestContext';
@@ -657,7 +657,7 @@ const AdminTourBookingList: React.FC = () => {
                                                 <div className="flex flex-col justify-between">
                                                     <div>
                                                         <TourRequestDetail
-                                                            icon={<GrLocation />}
+                                                            icon={<FaMapMarkerAlt />}
                                                             label="Property Type"
                                                             value={tour.Property?.propertyType || 'N/A'}
                                                         />

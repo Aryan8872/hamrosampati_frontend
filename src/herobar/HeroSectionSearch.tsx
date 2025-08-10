@@ -116,12 +116,13 @@ const HeroSectionSearch = () => {
                         <label className="text-sm  text-gray-600 flex items-center gap-2">
                             <FaListAlt className="font-ManropeRegular text-gray-500" /> Looking For
                         </label>
-                        <Combobox value={selectedListingType} onChange={(e) => setSelectedListingType(e!)}>
+                        <Combobox<string> value={selectedListingType} onChange={(e) => setSelectedListingType(e!)}>
                             <div className="relative">
                                 <div className="relative flex items-center">
                                     <ComboboxInput
-                                        displayValue={() => selectedListingType || "Select type"}
+                                        displayValue={(v: string) => v}
                                         onChange={(event) => setListingTypeQuery(event.target.value)}
+                                        placeholder="Select type"
                                         className="w-full font-ManropeMedium rounded-lg border border-gray-300 bg-white py-2.5 pl-3 pr-10 text-sm text-gray-800 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     <ComboboxButton className="absolute inset-y-0 right-0 flex items-center pr-2">
@@ -156,15 +157,16 @@ const HeroSectionSearch = () => {
                         <label className="text-sm text-gray-600 flex items-center gap-2">
                             <FaCity className="font-ManropeMedium text-gray-500" /> District
                         </label>
-                        <Combobox value={selectedDistrict} onChange={(district) => {
+                        <Combobox<string> value={selectedDistrict} onChange={(district) => {
                             setSelectedDistrict(district);
                             setSelectedCity("");
                         }}>
                             <div className="relative">
                                 <div className="relative flex items-center">
                                     <ComboboxInput
-                                        displayValue={() => selectedDistrict || "Select District"}
+                                        displayValue={(v: string) => v}
                                         onChange={(event) => setDistrictQuery(event.target.value)}
+                                        placeholder="Select District"
                                         className="w-full font-ManropeRegular rounded-lg border border-gray-300 bg-white py-2.5 pl-3 pr-10 text-sm text-gray-800 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     <ComboboxButton className="absolute inset-y-0 right-0 flex items-center pr-2">
@@ -199,12 +201,13 @@ const HeroSectionSearch = () => {
                         <label className="text-sm font-medium text-gray-600 flex items-center gap-2">
                             <FaCity className="font-ManropeRegular text-gray-500" /> City
                         </label>
-                        <Combobox value={selectedCity} onChange={setSelectedCity}>
+                        <Combobox<string> value={selectedCity} onChange={setSelectedCity}>
                             <div className="relative">
                                 <div className="relative flex items-center">
                                     <ComboboxInput
-                                        displayValue={() => selectedCity || "Select city"}
+                                        displayValue={(v: string) => v}
                                         onChange={(event) => setCityQuery(event.target.value)}
+                                        placeholder="Select city"
                                         className="w-full font-ManropeRegular rounded-lg border border-gray-300 bg-white py-2.5 pl-3 pr-10 text-sm text-gray-800 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     <ComboboxButton className="absolute inset-y-0 right-0 flex items-center pr-2">
@@ -241,12 +244,13 @@ const HeroSectionSearch = () => {
                         <label className="text-sm font-medium text-gray-600 flex items-center gap-2">
                             <MdCategory className="font-ManropeRegular text-gray-500" /> Property Type
                         </label>
-                        <Combobox value={selectedPropertyType} onChange={(e) => setSelectedPropertyType(e!)}>
+                        <Combobox<string> value={selectedPropertyType} onChange={(e) => setSelectedPropertyType(e!)}>
                             <div className="relative">
                                 <div className="relative flex items-center">
                                     <ComboboxInput
-                                        displayValue={() => selectedPropertyType || "Select type"}
+                                        displayValue={(v: string) => v}
                                         onChange={(event) => setPropertyTypeQuery(event.target.value)}
+                                        placeholder="Select type"
                                         className="w-full font-ManropeMedium rounded-lg border border-gray-300 bg-white py-2.5 pl-3 pr-10 text-sm text-gray-800 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     <ComboboxButton className="absolute inset-y-0 right-0 flex items-center pr-2">

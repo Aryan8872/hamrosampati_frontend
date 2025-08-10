@@ -36,7 +36,7 @@ const FormInput: React.FC<FormInputProps> = ({
         type={type}
         value={value}
         onChange={onChange}
-        placeholder={t(placeholder)}
+        placeholder={placeholder ? t(placeholder) : undefined}
         className={`
           w-full px-4 py-2 border rounded-md shadow-sm text-gray-900 placeholder-gray-400
           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500

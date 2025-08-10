@@ -77,7 +77,10 @@ const UpdatePropertyModal = ({ isOpen, onClose, propertyData }: addpropertytype)
         "Pokhara": ["Lakeside", "Bagar", "New Road", "Mahendrapul"],
         "Kaski": ["Pokhara", "Lekhnath", "Batulechaur"],
         "Dhanusha": ["Janakpur", "Bateshwar", "Mukhiyapatti"],
-        "Sunsari": ["Itahari", "Inaruwa", "Duhabi", "Dharan"]
+        "Sunsari": ["Itahari", "Inaruwa", "Duhabi", "Dharan"],
+        "Rupandehi": ["Butwal", "Siddharthanagar"],
+        "Parsa": ["Birgunj"],
+        "Banke": ["Nepalgunj"]
     };
 
 
@@ -311,7 +314,7 @@ const UpdatePropertyModal = ({ isOpen, onClose, propertyData }: addpropertytype)
                                                 setValuefn={(district) => {
                                                     setSelectedDistrict(district);
                                                     setSelectedCity('Select a City');
-                                                    handleFieldChange('district', district);
+                                                    handleFieldChange('district', district as string);
                                                 }}
                                                 value={selectedDistrict!}
                                                 onChange={handleFieldChange}
@@ -347,7 +350,7 @@ const UpdatePropertyModal = ({ isOpen, onClose, propertyData }: addpropertytype)
                                                 setValuefn={setSelectedCity}
                                                 value={selectedCity}
                                                 onChange={handleFieldChange}
-                                                options={districtCityMap[selectedDistrict] || []}
+                                                options={(selectedDistrict && selectedDistrict !== "Select a District" && districtCityMap[selectedDistrict as keyof typeof districtCityMap]) || []}
                                                 placeholder='Select a City'
                                                 icon={<FaCity />}
 
